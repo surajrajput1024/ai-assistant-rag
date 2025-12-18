@@ -261,7 +261,7 @@ export const fetchSearchRows = async (query: string, top = 20): Promise<SearchRe
 export const buildSummaryWithOpenAI = async (
   question: string,
   rows: QueryRow[],
-  documents?: Array<{ id: string; title: string; content: string; fileName?: string }>,
+  documents?: Array<{ id: string; title: string; content: string; fileName?: string; fileType?: string }>,
 ) => {
   const cfg = azureOpenAIConfig();
   if (!cfg) return null;
