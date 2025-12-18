@@ -1,10 +1,10 @@
 [build]
   base = "poc-app"
   command = "npm install && npm run build"
-  # Don't set publish - let the Next.js plugin handle it automatically
+  publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
