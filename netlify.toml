@@ -1,6 +1,7 @@
 [build]
   base = "poc-app"
   command = "npm install && npm run build"
+  # Don't set publish - let the Next.js plugin handle it automatically
 
 [build.environment]
   NODE_VERSION = "18"
