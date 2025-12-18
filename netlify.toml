@@ -1,7 +1,6 @@
 [build]
   base = "poc-app"
   command = "npm install && npm run build"
-  publish = "poc-app/.next"
 
 [build.environment]
   NODE_VERSION = "18"
