@@ -12,3 +12,4 @@
 # Disable submodule checkout to avoid the error
 [git]
   submodules = false
+  fetch-depth = 1
