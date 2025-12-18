@@ -1,0 +1,55 @@
+{
+  "name": "lab-documents-indexer",
+  "description": "Indexer for lab documents (PDFs, CSVs) from Azure Blob Storage",
+  "dataSourceName": "azureblob-1766049738531-datasource",
+  "targetIndexName": "lab-documents-index",
+  "schedule": {
+    "interval": "PT5M",
+    "startTime": "2025-01-01T00:00:00Z"
+  },
+  "parameters": {
+    "batchSize": 10,
+    "maxFailedItems": 10,
+    "maxFailedItemsPerBatch": 5,
+    "configuration": {
+      "indexedFileNameExtensions": ".pdf,.PDF,.csv,.CSV,.txt,.TXT",
+      "excludedFileNameExtensions": "",
+      "dataToExtract": "contentAndMetadata",
+      "parsingMode": "default",
+      "imageAction": "none",
+      "delimitedTextHeaders": "firstLine",
+      "delimitedTextDelimiter": ",",
+      "firstLineContainsHeaders": true,
+      "documentRoot": "/",
+      "failOnUnsupportedContentType": false,
+      "failOnUnprocessableDocument": false
+    }
+  },
+  "fieldMappings": [
+    {
+      "sourceFieldName": "metadata_storage_name",
+      "targetFieldName": "fileName",
+      "mappingFunction": null
+    },
+    {
+      "sourceFieldName": "metadata_storage_path",
+      "targetFieldName": "metadata_storage_path",
+      "mappingFunction": null
+    },
+    {
+      "sourceFieldName": "metadata_content_type",
+      "targetFieldName": "fileType",
+      "mappingFunction": null
+    },
+    {
+      "sourceFieldName": "content",
+      "targetFieldName": "content",
+      "mappingFunction": null
+    },
+    {
+      "sourceFieldName": "metadata_storage_name",
+      "targetFieldName": "title",
+      "mappingFunction": null
+    }
+  ]
+}
