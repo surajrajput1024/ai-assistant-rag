@@ -40,7 +40,6 @@ export async function POST(request: Request) {
     let isRateLimitError = false;
     let retryAfterSeconds: number | null = null;
     
-    // Always try to get LLM summary if we have documents or rows
     if (documents.length > 0 || rows.length > 0) {
       console.log(`Calling buildSummaryWithOpenAI with ${documents.length} documents, ${rows.length} rows`);
       llmSummary = await buildSummaryWithOpenAI(question, rows, documents.length > 0 ? documents : undefined).catch(
